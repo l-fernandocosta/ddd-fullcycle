@@ -32,6 +32,21 @@ export class Order {
     return true;
   }
 
+  get id(): string {
+    return this._id;
+  }
+  get customerId(): string {
+    return this._customerId;
+  }
+
+  get items(): OrderItem[] {
+    return this._items;
+  }
+
+  get productIds(): string[] {
+    return this._items.map((item) => item.id);
+  }
+
   total(): number {
     return this._items.reduce((acc, item) => acc + item.orderItemTotal(), 0);
   }
