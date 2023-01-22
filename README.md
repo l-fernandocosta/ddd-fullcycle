@@ -33,3 +33,36 @@ Quando um processo ou transformação significativa no domínio não for uma res
 - Domain Services são stateless.
 
 
+
+Use um evento de domínio para caputrar uma ocorrência de algo que aconteceu no domínio.  - Vernon
+
+A essência de um evento de domínio é que voce o usa para caputrar coisas que podem desencadear uma mudança no estado do aplicativo que está desenvolvendo. Esses objetos de evento são processados para causar as alterações no sistema e armazenados para fornecer um AuditLog. 
+
+Todo evento deve ser representado em uma ação realizada no passado:
+
+- UserCreated
+- OrderPlaced
+- EmailSent
+
+
+### Quando faz sentido utilizar ?
+
+Normalmente um Domain Event deve ser utilizado quando queremos notificar outros Bounded Contexts de uma mudança de estado. 
+
+### Domain Events  - Componentes 
+
+- Event 
+- Handler -> Executa o processamento quando um evento é chamado
+- Event Dispatcher -> Responsável por amazenar e executar os handlers de um evento quando ele for disparado. 
+
+### Domain Events - Dinâmica
+
+- Criar um "Event Dispatcher"
+- Criar um  "Evento"
+- Criar um "Handler para o Evento"
+- Registrar o Evento, juntamente o Handler no "Event Dispatcher"
+
+Agora para disparar um evento, basta executar o método notify do "Event Dispatcher". Nesse momento todos os handlers registrados no evento serão executado. 
+
+
+
