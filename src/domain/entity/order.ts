@@ -47,6 +47,10 @@ export class Order {
     return this._items.map((item) => item.id);
   }
 
+  changeItems(items: OrderItem[]): void {
+    this._items = items;
+  }
+
   total(): number {
     return this._items.reduce((acc, item) => acc + item.orderItemTotal(), 0);
   }
